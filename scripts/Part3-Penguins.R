@@ -5,10 +5,16 @@
 library(ggplot2)
 library(gganimate)
 library(lubridate) # useful functions for working with datetimes
+library(mapproj)
 
 # Again set the working directory
 getwd() 
+
+# only works in Mac (not in windows)
 setwd("~/Development/RUsers/workshops/BeginR")
+
+# use this for windows
+setwd(choose.dir())
 
 # So now we need to read in all the data for ths=is project. In this
 # scenario we have 25 different csv files with each one corresponding 
@@ -90,7 +96,7 @@ peng.map <- mapfile +
   scale_x_continuous(limits = c(min(df$lon, na.rm=TRUE)-0.07, max(df$lon, na.rm=TRUE)+0.07), expand = c(0, 0)) +
   geom_point(data=df, aes(x=lon,y=lat,color=id), size=1.5)
 
-# let's have look
+# let's have a look
 peng.map
 
 # The legend is not that useful here so let's remove it
@@ -106,7 +112,7 @@ peng.map + facet_wrap(~id) # not saving this one - also might take a while to re
 # tracks were collected on the same day. But for the sake of our animation we want to 
 # plot all of these tracks with just the time (regardless of what day it is). Otherwise
 # our animation will be too long and we won't be able to compare the tracks properly. 
-# To do this we can build a "relative datetime". Basicaslly we just strip out the hour
+# To do this we can build a "relative datetime". Basically we just strip out the hour
 # and minute components of the datetime objects and just reformat them all so they all 
 # occur on the same arbutary day. We can use some useful functions from the lubridate 
 # package to extract the hours and minutes from the datetime columns. 
@@ -118,7 +124,7 @@ df$datetime_relative <- ISOdatetime(2000, 01, 01, as.integer(df$hour), as.intege
 
 # Finally let's do the cool part! We are going to animate these penguin movements
 # using gganimate. We are simply going have our frames transition accross the 
-# relative dtaetime column we just made. We're also going to add a few cool tails
+# relative datetime column we just made. We're also going to add a few cool tails
 # to the track movements using `shadow_wake()`.
 peng.anim <- peng.map +
   transition_time(df$datetime_relative) +

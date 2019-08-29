@@ -12,16 +12,26 @@
 # installed) using the `library()` function. It's good practice to load all packages
 # you will use at the top of your script. 
 
+# run these lines if you don't have these packages installed
+#required_packages = c("datasets", "ggplo2","gganimate","cmocean","gifski")
+#install.packages(required_packages)
+
 library(datasets) # some built in datasets to play with
 library(ggplot2) # useful for making nice looking plots and figures
 library(gganimate) # useful for making animations
 library(cmocean) # some nice looking colormaps (you'll see)
+library("gifski") # for rendering images
 
 # First up let's set out working directopry again. You can copy this accross from
 # the first script. This will be set from the last script but it's good practice 
 # to set this early on. We can get the current working directory useing `getwd()`.
 getwd()
+
+# only works in Mac (not in windows)
 setwd("~/Development/RUsers/workshops/BeginR")
+
+# use this for windows
+setwd(choose.dir())
 
 ####################################
 # Part 2.1 - Insect Spray Analysis #
@@ -93,7 +103,7 @@ df[df$spray != 'D', ]
 # Let's make a visual plot of our data.
 # Are has a lot of "base" plotting functions that are quite good.
 # It's also usually smart enough to know what you want to plot based
-# on the layout of the data. Becuase our x axis is factors and y axis 
+# on the layout of the data. Because our x axis is factors and y axis 
 # is numerical in this case R knows that a box plot is the best way to
 # represent this data.
 plot(df$spray, df$count)
@@ -107,8 +117,8 @@ summary(aov.spray)
 #################################
 # Part 2.2 - Global Temperature #
 #################################
-# In this secrtin we're going to learn some more advanced plotting features 
-# avliable in the package `ggplot2` which we loaded earlier. We'll also learn
+# In this section we're going to learn some more advanced plotting features 
+# available in the package `ggplot2` which we loaded earlier. We'll also learn
 # how to load our own datasets.
 
 # Now the next thing we need to do is read in our dataset. Out data set is

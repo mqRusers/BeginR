@@ -2,8 +2,13 @@
 # BeginR - Part 1 #
 ###################
 # Set the working directory (you will need to change this line to where your 
-# "BeginnerR" direcotry is located)
+# "BeginnerR" directory is located)
+
+# only works in Mac (not in windows)
 setwd("~/Development/RUsers/workshops/BeginR")
+
+# use this for windows
+setwd(choose.dir())
 
 ###########################
 # Part 1.1 - Basic Syntax #
@@ -16,7 +21,7 @@ setwd("~/Development/RUsers/workshops/BeginR")
 myNum <- 7
 # Once we've assigned a value it will appear in the environment 
 # window. We can print our variables to the console at anytime by
-# either writting there names or using the `print()` function.
+# either writing there names or using the `print()` function.
 myNum
 print(myNum)
 
@@ -113,9 +118,9 @@ myVector <- c(100, 200, 150, 150, 400)
 mean(myVector)
 
 # in R we can also define our own functions!
-# Funcrions can use other funciton inside them
+# Functions can use other function inside them
 # Let's make a simple funciton to add two numbers and then
-# devide them by pi and then round to two decimeal places. 
+# devide them by pi and then round to two decimal places. 
 # Our arguments will be "x" and "y".
 myFunction <- function(x, y){
   result <- (x + y)/pi
@@ -152,7 +157,7 @@ myVector <- c(1, 2, 'string', 4, 5)
 myVector # Mixed types are not allowed so everything has been turned to strings!
 
 # Indexing - This is so important!
-# We can select items in a vecotr or list (indexing) by using square brackets [].
+# We can select items in a vector or list (indexing) by using square brackets [].
 # For example:
 myVector <- c(1, 4, 7, 9, 342)
 myVector[1] # this selects position 1
