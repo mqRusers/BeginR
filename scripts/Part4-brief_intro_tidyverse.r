@@ -12,6 +12,11 @@ library(datasets)
 # information on the datasets available
 library(help = "datasets")
 
+
+# Tidyverse works with tibbles (improved dataframes), 
+# which are also more computationally efficient
+# to convert a dataframe to a tibble, we use the function 'as_tibble()'
+
 ###############
 
 # new functions
@@ -50,6 +55,12 @@ data = datasets::iris %>% as_tibble()
 data
 
 ###########################################
+
+## Functions being piped are applied in that order,
+## just like regular functions are applied from inside to outside
+
+# Example: as.factor(as.character(1))
+# 1 is converted to a character, then to a factor, not the opposite
 
 
 # importing dataset from library datasets
@@ -102,7 +113,7 @@ cars_mod %>% filter(hp_type == "high")
 
 cars_mod %>% group_by(type)
 
-cars_mod %>% summarize(hp_mean = mean(hp)) # general mean
+cars_mod %>% summarize(hp_mean = mean(hp)) # summarize and obtain general mean
 
 cars_mod %>% group_by(type) %>% summarize(hp_mean = mean(hp))
 
