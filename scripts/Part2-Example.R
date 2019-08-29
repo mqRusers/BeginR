@@ -158,8 +158,7 @@ as.integer(myDatetime) # 1567096200 seconds past 1970
 
 # Be very careful when working with datetimes! Here's a common trap for young players!
 # If you use as.POSIXct() without specifying the timezone, it assumes the times you have 
-# entered are UTC and that you want to convert these into your local timezone! So this can
-# catch you out!
+# entered are your local timezone! So this can catch you out!
 # THIS.....
 myDatetime <- as.POSIXct('2019-08-29 16:30:00', tz='UTC')
 myDatetime
