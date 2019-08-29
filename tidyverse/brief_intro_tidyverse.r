@@ -40,8 +40,8 @@ library(help = "datasets")
 
 # APPROACH 1
 
-data = datasets::iris
-data = as_tibble(data)
+data <- datasets::iris
+data <- as_tibble(data)
 data
 
 # APPROACH 2
@@ -54,7 +54,7 @@ data
 
 # importing dataset from library datasets
 
-data = read_csv("data/iris_modified.csv",
+data <- read_csv("data/iris_modified.csv",
                 col_types = cols(Sepal.Length = col_double(),
                                  Sepal.Width = col_double(),
                                  Petal.Length = col_double(),
@@ -71,13 +71,13 @@ summary(data)
 # importing dataset from file
 # read_csv is an improved version of read.csv
 
-cars_mod = read_csv("data/mt_cars_modified.csv")
+cars_mod <- read_csv("data/mt_cars_modified.csv")
 
 # classes 
 sapply(cars_mod, class)
 
 # type as factor
-cars_mod$type =  as_factor (cars_mod$type)
+cars_mod$type <-  as_factor (cars_mod$type)
 
 cars_mod
 
